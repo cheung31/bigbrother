@@ -1,4 +1,5 @@
 .DS_Store
+*.sw*
 .nodemonignore
 .sass-cache/
 npm-debug.log
