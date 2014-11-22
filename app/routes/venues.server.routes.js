@@ -13,7 +13,7 @@ module.exports = function(app) {
 		.post(venues.create);
 
 	app.route('/api/venues/:venueId')
-		.get(venues.read)
-		.put(venues.update)
-		.delete(venues.delete);
+		.get(venues.read);
+		//.put(venues.update)
+		//.delete(venues.delete);
 };
