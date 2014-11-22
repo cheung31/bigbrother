@@ -12,10 +12,7 @@ var mongoose = require('mongoose'),
  * Create a visitor
  */
 exports.create = function(req, res) {
-	var visitor = new Visitor();
-    visitor.x = req.x;
-    visitor.y = req.y;
-    visitor.id = req.id;
+	var visitor = new Visitor(req.body);
 
 	visitor.save(function(err) {
 		if (err) {
