@@ -48,7 +48,8 @@ angular.module('dashboard').directive('retailRocketHeatmap', ['Visitors',
 					var circles = svg.selectAll('circle')
 							                  .data(scope.visitors)
 							                  .enter()
-							                  .append('circle');
+							                  .append('circle')
+							                  .filter(function (d) { return d.x > 0});
 
 					// var circleAttributes = circles.attr('cx', function (d) { return originXpixel; })
 					// 		                      .attr('cy', function (d) { return originYpixel * pixelToMapYRatio; })
