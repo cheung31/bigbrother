@@ -26,6 +26,10 @@ var RssiSchema = new Schema({
     },
     mac: {
         type: String
+    },
+    processed: {
+        type: Boolean,
+        default: false
     }
 });
 
