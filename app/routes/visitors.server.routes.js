@@ -8,7 +8,7 @@ module.exports = function(app) {
     // Visitors
 	var visitors = require('../../app/controllers/visitors.server.controller');
 
-	app.route('/api/visitors')
+	app.route('/visitors')
         .get(visitors.list)
 	    .post(visitors.create);
 };
