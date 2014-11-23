@@ -99,8 +99,8 @@ async.waterfall([function(next) {
 		_.forIn(macTimeNode, function(value1, mac) {
 			_.forIn(macTimeNode[mac], function(value2, timeBucket) {
 				if (_.size(macTimeNode[mac][timeBucket]) >= 3) {
-					var x = (pow(value2['1'], 2) - pow(value2['2'], 2) + pow(d, 2)) / (2*d);
-					var y = ((pow(value2['1'], 2) - pow(value2['3'], 2) + pow(i, 2) + pow(j, 2)) / (2*j)) - (i*x/j);
+					var x = (Math.pow(value2['1'], 2) - Math.pow(value2['2'], 2) + Math.pow(d, 2)) / (2*d);
+					var y = ((Math.pow(value2['1'], 2) - Math.pow(value2['3'], 2) + Math.pow(i, 2) + Math.pow(j, 2)) / (2*j)) - (i*x/j);
 					var location = new Visitor({id: mac, created: timeBucket, x: x, y: y});
 					locations.push(location);
 				}
