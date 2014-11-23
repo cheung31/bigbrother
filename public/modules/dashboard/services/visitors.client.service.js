@@ -2,12 +2,12 @@
 
 angular.module('dashboard').factory('Visitors', ['$resource',
 	function($resource) {
-		return $resource('visitors/:visitorId', {
-			visitorId: '@_id'
-		}, {
-			update: {
-				method: 'PUT'
-			}
-		});
+		return {
+            all: $resource('visitors'),
+            historical: $resource(
+                'visitors',
+                { since: '@since', until: '@until' }
+            )
+        };
 	}
 ]);

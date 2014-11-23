@@ -14,13 +14,37 @@
 	      <tab class="dashboard-tab-header" heading="Realtime Data" a>
 	      	<section class="dashboard-tab-content">
     		    <div>
-		      		<retail-rocket-heatmap></retail-rocket-heatmap>
+                    <div class="dashboard-filters" dropdown is-open="status.isopen">
+                      <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                        Dufferin Mall <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li class="divider"></li>
+                        <li><a href="#">+ Add Venue</a></li>
+                      </ul>
+                    </div>
+		      		<retail-rocket-heatmap class="dashboard-heatmap"></retail-rocket-heatmap>
 	      		</div>
 	      	</section>
 	      </tab>
 	      <tab class="dashboard-tab-header" heading="Historical Data" a>
 	      	<section class="dashboard-tab-content">
-	      		Historical data content
+    		    <div>
+                    <div class="dashboard-filters" dropdown is-open="status.isopen">
+                      <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                        Dufferin Mall <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li class="divider"></li>
+                        <li><a href="#">+ Add Venue</a></li>
+                      </ul>
+                      <div class="btn-group">
+                          <label class="btn btn-default" ng-model="radioModel" btn-radio="'Hourly'">Hourly</label>
+                          <label class="btn btn-default" ng-model="radioModel" btn-radio="'Daily'">Daily</label>
+                      </div>
+                    </div>
+		      		<retail-rocket-historical-heatmap class="dashboard-heatmap"></retail-rocket-historical-heatmap>
+	      		</div>
       		</section>
       	</tab>
 	    </tabset>

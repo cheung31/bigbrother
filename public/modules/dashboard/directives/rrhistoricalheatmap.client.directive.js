@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dashboard').directive('retailRocketHeatmap', ['Visitors',
+angular.module('dashboard').directive('retailRocketHistoricalHeatmap', ['Visitors',
 	function(Visitors) {
 		return {
 			restrict: 'E',
@@ -8,7 +8,9 @@ angular.module('dashboard').directive('retailRocketHeatmap', ['Visitors',
 			replace: true,
 			link: function (scope, element, attrs) {
 				scope.find = function() {
-					scope.visitors = Visitors.all.query();
+					scope.visitors = Visitors.historical.query({
+                        since: 123
+                    });
 				}
 
 				var svg = d3.select(element[0])
@@ -30,7 +32,7 @@ angular.module('dashboard').directive('retailRocketHeatmap', ['Visitors',
 					}
 				}, true);
 
-				setInterval(function() { scope.find() }, 5000);
+                scope.find();
 
 				// define render function
 				scope.render = function (data) {
