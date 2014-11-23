@@ -28,6 +28,7 @@ Rssi.find({'processed': false}).exec(function(err, rssis) {
 	var macs = {};
 	var macTimeBuckets = {};
 	var macTimeNode = {};
+	var distances = {};
 
 	// Break up by MAC address
 	rssis.forEach(function(rssi) {
@@ -39,7 +40,7 @@ Rssi.find({'processed': false}).exec(function(err, rssis) {
 	_.forIn(macs, function(value, key) {
 		macTimeBuckets[key] = {};
 		macs[key].forEach(function(rssi) {
-			var timeBucket = (new Date(Math.round(5 * Math.round(rssi.created / 5)))).toString();
+			var timeBucket = (new Date(Math.round(5000 * Math.round(rssi.created / 50000)))).toString();
 			if (!macTimeBuckets[key][timeBucket]) macTimeBuckets[key][timeBucket] = [];
 			macTimeBuckets[key][timeBucket].push(rssi);
 		});
@@ -50,20 +51,44 @@ Rssi.find({'processed': false}).exec(function(err, rssis) {
 		macTimeNode[mac] = {};
 		_.forIn(macTimeBuckets[mac], function(value2, timeBucket) {
 			macTimeNode[mac][timeBucket] = {};
-			var totalDistance = {};
-			var count = {};
-			macTimeBuckets[mac][timeBucket].forEach(function(rssi) {
-				// approximate distance in cm
-				totalDistance[rssi.router] = (totalDistance[rssi.router] || 0) + Math.pow(10, -(rssi.rssi + 2.425) / 23.28);
-				count[rssi.router] = (count[rssi.router] || 0) + 1;
-			});
 
-			_.forIn(totalDistance, function(dist, router) {
-				if (count[router] > 0)
-					macTimeNode[mac][timeBucket][router] = dist / count[router];
+			macTimeBuckets[mac][timeBucket].forEach(function(rssi) {
+				if (!macTimeNode[mac][timeBucket][rssi.router]) macTimeNode[mac][timeBucket][rssi.router] = [];
+				macTimeNode[mac][timeBucket][rssi.router].push(rssi);
 			});
 		});
 	});
+	
+	_.forIn(macTimeNode, function(value1, mac) {
+		distances[mac] = {};
+		_.forIn(macTimeNode[mac], function(value2, timeBucket) {
+			distances[mac][timeBucket] = {};
+			_.forIn(macTimeNode[mac][timeBucket], function(value3, router) {
+				distances[mac][timeBucket][router] = 0;
+
+				var sortedRssis = _.sortBy(macTimeNode[mac][timeBucket][router], function(rssi) { return rssi.rssi; });
+				var medianDistance = 0;
+				if (sortedRssis.length === 1) {
+					medianDistance = Math.pow(10, -(sortedRssis[0].rssi + 2.425) / 23.28);
+				} else if (sortedRssis.length % 2 === 0) {
+					var rssi1 = sortedRssis[(sortedRssis.length / 2) - 1].rssi;
+					var rssi2 = sortedRssis[sortedRssis.length / 2].rssi;
+					var dist1 = Math.pow(10, -(rssi1 + 2.425) / 23.28);
+					var dist2 = Math.pow(10, -(rssi2 + 2.425) / 23.28);
+					medianDistance = (dist1 + dist2) / 2;
+				} else {
+					var medianRssi = sortedRssis[Math.floor(sortedRssis.length / 2)].rssi;
+					medianDistance = Math.pow(10, -(medianRssi + 2.425) / 23.28);
+				}
+
+				distances[mac][timeBucket][router] = medianDistance;
+				// console.log('mac: ' + mac + ' time: ' + timeBucket + ' router: ' + router + ' dist: ' + medianDistance);
+			});
+		});
+	});
+	
+
+	console.log(distances);
 
 	var locations = [];
 
