@@ -30,7 +30,7 @@ angular.module('dashboard').directive('retailRocketHeatmap', ['Visitors',
 					}
 				}, true);
 
-				setInterval(function() { scope.find() }, 1000);
+				setInterval(function() { scope.find() }, 5000);
 
 				// define render function
 				scope.render = function (data) {
