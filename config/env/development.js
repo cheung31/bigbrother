@@ -3,7 +3,7 @@
 module.exports = {
 	db: 'mongodb://localhost/retail-rocket-dev',
 	app: {
-		title: 'Retail Rocket - Development Environment'
+		title: 'Retail Rocket'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',

@@ -49,7 +49,7 @@ angular.module('dashboard').directive('retailRocketHeatmap', ['Visitors',
 							                  .data(scope.visitors)
 							                  .enter()
 							                  .append('circle')
-							                  .filter(function (d) { return d.x > 0});
+							                  .filter(function (d) { return (d.x / 100) * pixelsPerMetre + originXpixel > 240});
 
 					// var circleAttributes = circles.attr('cx', function (d) { return originXpixel; })
 					// 		                      .attr('cy', function (d) { return originYpixel * pixelToMapYRatio; })
