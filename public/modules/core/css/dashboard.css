@@ -1,5 +1,16 @@
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url("Roboto-Bold.ttf");
+}
+
 body {
     background-color: rgba(228, 228, 228, 1);
+    font-family: "Roboto-Regular";
 }
 header {
     height: 60px;
@@ -13,6 +24,7 @@ header h1 {
     margin: 0;
     line-height: 60px;
     font-size: 25px;
+    text-transform: uppercase;
 }
 header .logo {
     display: inline-block;
@@ -40,7 +52,7 @@ header .logo {
     list-style-type: none;
     height: 70px;
     line-height: 40px;
-    font-size: 18px;
+    font-size: 16px;
     padding: 15px 15px 15px 60px;
     background-position: 20px;
     background-repeat: no-repeat;
@@ -68,39 +80,22 @@ header .logo {
     margin: 20px;
 }
 
-.dashboard-tabs {
-    position: absolute;
-    top: 60px;
-    left: 265px;
-    margin: 20px;
-    right: 0;
+.dashboard-content .nav {
+    text-transform: uppercase;
+}
+.dashboard-content .nav a {
+    color: #999;
+    padding: 22px 45px;
+    border-radius: 0;
+    border-top: 3px solid transparent;
+}
+.dashboard-content .nav .active a,
+.dashboard-content .nav .active a:hover {
+    border-top: 3px solid rgba(55, 183, 191, 1);
+    color: rgba(55, 183, 191, 1);
 }
 
-.dashboard-tab-content {
-    background-color: #FEFEFE;
-    border-left: 1px solid #DDD;
-    border-right: 1px solid #DDD;
-    border-bottom: 1px solid #DDD;
-    bottom: 0;
-    right: 0;
-}
-
-@font-face {
-    font-family: "Roboto-Regular";
-    src: url("Roboto-Regular.ttf");
-}
-
-@font-face {
-    font-family: "Roboto-Bold";
-    src: url("Roboto-Bold.ttf");
-}
-
-.dashboard-tab-header {
-    font-family: "Roboto-Regular";
-    font-size: 125%;
-}
-
-a {
+.nav a {
     cursor:pointer;
 }
 
