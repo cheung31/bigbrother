@@ -19,9 +19,9 @@ var Rssi = mongoose.model('Rssi');
 var Visitor = mongoose.model('Visitor');
 
 // Distances between routers in cm
-var d = 500,
-	i = 500,
-	j = 500;
+var d = 880,
+	i = 518,
+	j = 1968;
 
 // var rssi = new Rssi({'mac': 'fakemac', 'rssi': -65, 'processed': false, created: Date.now()});
 // rssi.save(function(err) {
