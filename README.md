@@ -44,6 +44,38 @@ Your application should run on the 3000 port so in your browser just go to [http
 That's it! your application should be running by now, to proceed with your development check the other sections in this documentation. 
 If you encounter any problem try the Troubleshooting section.
 
+## Deployment to Heroku
+
+* Login to Heroku and create the app:
+```bash
+$ heroku login
+$ heroku create
+```
+
+* Add a MongoHQ database:
+```bash
+$ heroku addons:add mongohq:sandbox
+```
+
+* Set NODE_ENV environment variable:
+```bash
+$ heroku config:set NODE_ENV=production
+```
+
+* Run grunt build:
+```bash
+$ grunt build
+```
+
+* Add production files:
+```bash
+$ git commit -am "Ran grunt build for heroku deployment"
+```
+
+* Push to Heroku and open:
+```bash
+$ git push heroku && heroku open
+
 ## Development and deployment With Docker
 
 * Install [Docker](http://www.docker.com/)
