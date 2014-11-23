@@ -23,7 +23,7 @@ def main():
 			try:
 				print "[%d] MAC: %s RSSi: %d"%(pkt.time, pkt.addr1, signal_strength)
 				packets.append({'created': pkt.time * 1000, 'mac': pkt.addr1, 'rssi': signal_strength, 'router': routerId, 'processed': False})
-				if len(packets) > 300:
+				if len(packets) > 1000:
 					thread = unirest.post("http://54.68.246.202:3000/rssi", headers = {"Content-Type": "application/json"}, params = json.dumps(packets), callback = callbackFunction)
 					packets = []
 			except:
