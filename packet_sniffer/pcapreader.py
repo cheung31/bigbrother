@@ -21,7 +21,7 @@ def main():
 			signal_strength = signal_strength - 256 if signal_strength > 127 else signal_strength
 			signal_strength = -signal_strength
 			print "[%d] MAC: %s RSSi: %d"%(pkt.time, pkt.addr1, signal_strength)
-			packets.append({'created': pkt.time, 'mac': pkt.addr1, 'rssi': signal_strength, 'router': routerId, 'processed': False})
+			packets.append({'created': pkt.time * 1000, 'mac': pkt.addr1, 'rssi': signal_strength, 'router': routerId, 'processed': False})
 			if len(packets) > 300:
 				thread = unirest.post("http://127.0.0.1:3000/rssi", headers = {"Content-Type": "application/json"}, params = json.dumps(packets), callback = callbackFunction)
 				packets = []
