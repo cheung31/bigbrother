@@ -55,8 +55,8 @@ angular.module('dashboard').directive('retailRocketHistoricalHeatmap', ['Visitor
 					// 		                      .attr('cy', function (d) { return originypixel * pixeltomapyratio; })
 					// 		                      .attr('r', 10)
 					// 		                      .style('fill', 'red');
-					var circleattributes = circles.attr('cx', function (d) { return (d.x / 100) * pixelspermetre + originxpixel; })
-							                      .attr('cy', function (d) { return ((d.y / 100) * pixelspermetre + originypixel) * pixeltomapyratio; })
+					var circleattributes = circles.attr('cx', function (d) { return (d.x / 100) * pixelsPerMetre + originXpixel; })
+							                      .attr('cy', function (d) { return ((d.y / 100) * pixelsPerMetre + originYpixel) * pixelToMapYRatio; })
 							                      .attr('r', 8)
 							                      .style('fill', 'red')
 							                      .style('opacity', 0.5);

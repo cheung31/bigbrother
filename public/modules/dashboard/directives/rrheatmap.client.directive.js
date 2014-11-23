@@ -51,11 +51,11 @@ angular.module('dashboard').directive('retailRocketHeatmap', ['Visitors',
 							                  .append('circle')
 							                  .filter(function (d) { return (d.x / 100) * pixelsPerMetre + originXpixel > 240});
 
-					// var circleAttributes = circles.attr('cx', function (d) { return originXpixel; })
-					// 		                      .attr('cy', function (d) { return originYpixel * pixelToMapYRatio; })
+					// var circleattributes = circles.attr('cx', function (d) { return originxpixel; })
+					// 		                      .attr('cy', function (d) { return originypixel * pixeltomapyratio; })
 					// 		                      .attr('r', 10)
 					// 		                      .style('fill', 'red');
-					var circleAttributes = circles.attr('cx', function (d) { return (d.x / 100) * pixelsPerMetre + originXpixel; })
+					var circleattributes = circles.attr('cx', function (d) { return (d.x / 100) * pixelsPerMetre + originXpixel; })
 							                      .attr('cy', function (d) { return ((d.y / 100) * pixelsPerMetre + originYpixel) * pixelToMapYRatio; })
 							                      .attr('r', 8)
 							                      .style('fill', 'red')
