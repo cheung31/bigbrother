@@ -67,3 +67,8 @@ header .logo {
     right: 0;
     margin: 20px;
 }
+
+retail-rocket-heatmap svg {
+    display: block;
+    margin: 0 auto;
+}
