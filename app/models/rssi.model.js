@@ -45,7 +45,7 @@ RssiSchema.pre('save', function(next) {
  */
 RssiSchema.methods.hashMacAddress = function(macAddress) {
     if (macAddress) {
-        return crypto.createHash('md5').update(macAddress).digest('hex')
+        return crypto.createHash('md5').update(macAddress).digest('hex');
     } else {
         return macAddress;
     }

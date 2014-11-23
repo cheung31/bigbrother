@@ -1,3 +1,15 @@
-<section>
-	<retail-rocket-heatmap></retail-rocket-heatmap>
+<header>
+    <h1>Dashboard</h1>
+    <div class="logo"></div>
+</header>
+<section data-ng-controller="DashboardController" data-ng-init="find()" class="dashboard">
+    <section class="dashboard-sidebar">
+        <ul>
+            <li class="dashboard-sidebar-active">Proximity</li>
+            <li>Traffic Analysis</li>
+        </ul>
+    </section>
+    <section class="dashboard-content">
+        <retail-rocket-heatmap></retail-rocket-heatmap>
+    </section>
 </section>
