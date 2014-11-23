@@ -96,9 +96,9 @@ async.waterfall([function(next) {
 
 		var locations = [];
 
-		_.forIn(macTimeNode, function(value1, mac) {
-			_.forIn(macTimeNode[mac], function(value2, timeBucket) {
-				if (_.size(macTimeNode[mac][timeBucket]) >= 3) {
+		_.forIn(distances, function(value1, mac) {
+			_.forIn(distances[mac], function(value2, timeBucket) {
+				if (_.size(distances[mac][timeBucket]) >= 3) {
 					var x = (Math.pow(value2['1'], 2) - Math.pow(value2['2'], 2) + Math.pow(d, 2)) / (2*d);
 					var y = ((Math.pow(value2['1'], 2) - Math.pow(value2['3'], 2) + Math.pow(i, 2) + Math.pow(j, 2)) / (2*j)) - (i*x/j);
 					console.log('x: ' + x + ' y: ' + y);
