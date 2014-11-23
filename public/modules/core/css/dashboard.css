@@ -113,6 +113,9 @@ header .logo {
     background-color: #EEF4F5;
     margin-top: 10px;
 }
+.btn .caret {
+    margin-left: 10px;
+}
 
 @media (max-width: 910px) {
     body {
