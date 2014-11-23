@@ -101,7 +101,9 @@ async.waterfall([function(next) {
 				if (_.size(macTimeNode[mac][timeBucket]) >= 3) {
 					var x = (Math.pow(value2['1'], 2) - Math.pow(value2['2'], 2) + Math.pow(d, 2)) / (2*d);
 					var y = ((Math.pow(value2['1'], 2) - Math.pow(value2['3'], 2) + Math.pow(i, 2) + Math.pow(j, 2)) / (2*j)) - (i*x/j);
+					console.log('x: ' + x + ' y: ' + y);
 					var location = new Visitor({id: mac, created: timeBucket, x: x, y: y});
+					console.log(location);
 					locations.push(location);
 				}
 			});
