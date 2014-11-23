@@ -23,7 +23,7 @@ exports.create = function(req, res) {
             }
         });
     } else {
-	    var rssi = new Rssi(req.body[i]);
+	    var rssi = new Rssi(req.body);
         rssi.save(function(err) {
             if (err) {
                 return res.status(400).send({
