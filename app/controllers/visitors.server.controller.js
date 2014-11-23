@@ -29,7 +29,25 @@ exports.create = function(req, res) {
  * List of Visitors
  */
 exports.list = function(req, res) {
-	Visitor.find()
+    var visitors;
+    var createdQuery = {};
+
+    if (Object.keys(req.query).length) {
+        if (req.query.until) {
+            createdQuery['$lte'] = new Date(req.query.until);
+        }
+        if (req.query.since) {
+            createdQuery['$gte'] = new Date(req.query.since);
+        }
+
+        visitors = Visitor.find({
+            created: createdQuery
+        });
+    } else {
+	    visitors = Visitor.find();
+    }
+
+    visitors
         .sort('-created')
         .exec(function(err, visitors) {
 	        if (err) {
