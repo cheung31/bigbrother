@@ -28,7 +28,7 @@ var d = 880,
 // 	console.log(err);
 // });
 async.waterfall([function(next) {
-	Rssi.find({'processed': false}).exec(function(err, rssis) {
+	Rssi.find({'processed': false}).limit(25000).exec(function(err, rssis) {
 		var macs = {};
 		var macTimeBuckets = {};
 		var macTimeNode = {};
