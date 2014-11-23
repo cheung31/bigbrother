@@ -107,3 +107,33 @@ a {
 .location-dropdown {
     margin: 10px;
 }
+
+retail-rocket-heatmap svg {
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 910px) {
+    body {
+        min-width: 640px;
+    }
+    .dashboard-sidebar {
+        min-width: 600px;
+        background-color: #FEFEFE;
+        border: 1px solid #CCC;
+        width: calc(100% - 40px);
+        color: #999;
+        margin: 20px;
+        height: 71px;
+    }
+    .dashboard-sidebar li {
+        display: inline-block;
+        padding-right: 30px;
+    }
+    .dashboard-content {
+        min-width: 600px;
+        top: 160px;
+        left: 0;
+        margin: 20px;
+    }
+}
