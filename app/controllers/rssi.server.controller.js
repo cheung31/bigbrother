@@ -42,6 +42,7 @@ exports.create = function(req, res) {
 exports.list = function(req, res) {
     Rssi.find()
         .sort('-created')
+        .limit(50)
         .exec(function(err, rssis) {
 	        if (err) {
 	        	return res.status(400).send({

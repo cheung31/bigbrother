@@ -44,6 +44,10 @@ exports.list = function(req, res) {
             created: createdQuery
         });
     } else {
+        //// Show visitors within last 10 minutes by default
+	    //visitors = Visitor.find({
+        //    created: { '$gte': new Date(Date.now() - (60 * 10 * 1000)) }
+        //});
 	    visitors = Visitor.find();
     }
 
