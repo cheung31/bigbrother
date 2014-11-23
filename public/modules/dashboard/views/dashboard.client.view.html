@@ -38,10 +38,18 @@
                         <li class="divider"></li>
                         <li><a href="#">+ Add Venue</a></li>
                       </ul>
-                      <div class="btn-group">
+                      <div ng-controller="HistoricalDataController" class="btn-group">
                           <label class="btn btn-default" ng-model="radioModel" btn-radio="'Hourly'">Hourly</label>
                           <label class="btn btn-default" ng-model="radioModel" btn-radio="'Daily'">Daily</label>
                       </div>
+                      <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                        on November 23, 2014<span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li class="divider"></li>
+                        <li><a href="#">+ Add Venue</a></li>
+                      </ul>
+                      <!--<slider ng-model="sliders.sliderValue" min="{{testOptions.min}}" step="{{testOptions.step}}" max="{{testOptions.max}}" value="{{testOptions.value}}"></slider>-->
                     </div>
 		      		<retail-rocket-historical-heatmap class="dashboard-heatmap"></retail-rocket-historical-heatmap>
 	      		</div>

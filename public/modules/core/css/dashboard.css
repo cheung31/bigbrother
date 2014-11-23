@@ -110,6 +110,8 @@ header .logo {
 
 .dashboard-filters {
     padding: 20px;
+    background-color: #EEF4F5;
+    margin-top: 10px;
 }
 
 @media (max-width: 910px) {

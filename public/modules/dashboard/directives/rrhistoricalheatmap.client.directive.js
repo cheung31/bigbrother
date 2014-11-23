@@ -11,7 +11,7 @@ angular.module('dashboard').directive('retailRocketHistoricalHeatmap', ['Visitor
 					scope.visitors = Visitors.historical.query({
                         since: 123
                     });
-				}
+				};
 
 				var svg = d3.select(element[0])
 				            .append('svg')
