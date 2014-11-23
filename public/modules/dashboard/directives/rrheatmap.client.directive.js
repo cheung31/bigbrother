@@ -14,8 +14,8 @@ angular.module('dashboard').directive('retailRocketHeatmap', ['Visitors',
 					originYpixel = 100;
 
 				scope.find = function() {
-					scope.visitors = Visitors.query();
-				}
+					scope.visitors = Visitors.all.query();
+				};
 
 				var svg = d3.select(element[0])
 				            .append('svg')
