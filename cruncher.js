@@ -44,7 +44,7 @@ async.waterfall([function(next) {
 		_.forIn(macs, function(value, key) {
 			macTimeBuckets[key] = {};
 			macs[key].forEach(function(rssi) {
-				var timeBucket = (new Date(Math.round(5000 * Math.round(rssi.created / 50000)))).toString();
+				var timeBucket = (new Date(Math.round(5000 * Math.round(rssi.created / 5000)))).toString();
 				if (!macTimeBuckets[key][timeBucket]) macTimeBuckets[key][timeBucket] = [];
 				macTimeBuckets[key][timeBucket].push(rssi);
 			});
