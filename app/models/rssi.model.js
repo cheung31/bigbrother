@@ -1,4 +1,4 @@
- 'use strict';
+'use strict';
 
 /**
  * Module dependencies.
@@ -8,22 +8,23 @@ var mongoose = require('mongoose'),
 	crypto = require('crypto');
 
 /**
- * Visitor Schema
+ * RSSI Schema
  */
-var VisitorSchema = new Schema({
+var RssiSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
     },
-    x: {
-        type: Number,
-        default: 0
+    router: {
+        type: Number
     },
-    y: {
-        type: Number,
-        default: 0
+    rssi: {
+        type: Number
     },
-    id: {
+    name: {
+        type: String
+    },
+    mac: {
         type: String
     }
 });
@@ -31,9 +32,9 @@ var VisitorSchema = new Schema({
 /**
  * Hook a pre save method to hash the mac address
  */
-VisitorSchema.pre('save', function(next) {
-    if (this.id) {
-        this.id = this.hashMacAddress(this.id);
+RssiSchema.pre('save', function(next) {
+    if (this.mac) {
+        this.mac = this.hashMacAddress(this.mac);
     }
 
     next();
@@ -42,7 +43,7 @@ VisitorSchema.pre('save', function(next) {
 /**
  * Create instance method for hashing a mac address
  */
-VisitorSchema.methods.hashMacAddress = function(macAddress) {
+RssiSchema.methods.hashMacAddress = function(macAddress) {
     if (macAddress) {
         return crypto.createHash('md5').update(macAddress).digest('hex')
     } else {
@@ -50,4 +51,4 @@ VisitorSchema.methods.hashMacAddress = function(macAddress) {
     }
 };
 
-mongoose.model('Visitor', VisitorSchema);
+mongoose.model('Rssi', RssiSchema);
