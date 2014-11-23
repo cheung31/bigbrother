@@ -74,6 +74,9 @@ retail-rocket-heatmap svg {
 }
 
 @media (max-width: 910px) {
+    body {
+        min-width: 640px;
+    }
     .dashboard-sidebar {
         min-width: 600px;
         background-color: #FEFEFE;
