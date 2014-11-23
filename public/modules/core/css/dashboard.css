@@ -67,3 +67,43 @@ header .logo {
     right: 0;
     margin: 20px;
 }
+
+.dashboard-tabs {
+    position: absolute;
+    top: 60px;
+    left: 265px;
+    margin: 20px;
+    right: 0;
+}
+
+.dashboard-tab-content {
+    background-color: #FEFEFE;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    bottom: 0;
+    right: 0;
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url("Roboto-Bold.ttf");
+}
+
+.dashboard-tab-header {
+    font-family: "Roboto-Regular";
+    font-size: 125%;
+}
+
+a {
+    cursor:pointer;
+}
+
+.location-dropdown {
+    margin: 10px;
+}
