@@ -1,0 +1,25 @@
+.header {
+	height: 60;
+	padding-top: 10px;
+	padding-bottom: 100px;
+	padding-right: 12%;
+	padding-left: 12%;
+}
+
+.main.container {
+	height: 700px;
+	background-color: #43C1CB;
+	margin-bottom: 50px;
+	padding-right: 12%;
+	padding-left: 12%;
+	padding-right: 5%;
+	padding-top: 50px;
+	color: #fff;
+	font-size: 16px;
+	text-shadow: 1px 2px #888888;
+	background: url('../img/contentBackground.jpg');
+	background-position: center; 
+	height: 700px;
+	width:auto;
+}
+
